@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-@author: Radoslaw Patelski
-"""
-
 from numpy import *
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
