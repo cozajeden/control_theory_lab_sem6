@@ -112,45 +112,45 @@ if __name__ == '__main__':
     solver.define_matrices(b, m, k)
     solver.solve_different_omega(solver.sin, 100, -2, 2, 11)
     solver.solve_different_omega(solver.step, 100, -2, 2, 11)
-    solver.generate_noise(0., 0.01, 1000)
-    solver.solve_different_omega(solver.sin, 100, -2, 2, 11, solver.noise)
-    solver.generate_noise(0., 0.1, 1000)
-    solver.solve_different_omega(solver.sin, 100, -2, 2, 11, solver.noise)
-    solver.generate_noise(0., 0.01, 1000)
-    solver.solve_different_omega(solver.step, 100, -2, 2, 11, solver.noise)
-    solver.generate_noise(0., 0.1, 1000)
-    solver.solve_different_omega(solver.step, 100, -2, 2, 11, solver.noise)
-    b = 0.2
-    m = 0.7
-    k = 5
-    solver.define_matrices(b, m, k)
-    solver.solve_different_omega(solver.sin, 100, -1, -1, 1)
-    solver.solve_different_omega(solver.step, 100, -1, -1, 1)
-    b = 0.5
-    m = 1
-    k = 1
-    solver.define_matrices(b, m, k)
-    solver.define_L(0.4)
+    # solver.generate_noise(0., 0.01, 1000)
+    # solver.solve_different_omega(solver.sin, 100, -2, 2, 11, solver.noise)
+    # solver.generate_noise(0., 0.1, 1000)
+    # solver.solve_different_omega(solver.sin, 100, -2, 2, 11, solver.noise)
+    # solver.generate_noise(0., 0.01, 1000)
+    # solver.solve_different_omega(solver.step, 100, -2, 2, 11, solver.noise)
+    # solver.generate_noise(0., 0.1, 1000)
+    # solver.solve_different_omega(solver.step, 100, -2, 2, 11, solver.noise)
+    # b = 0.2
+    # m = 0.7
+    # k = 5
+    # solver.define_matrices(b, m, k)
+    # solver.solve_different_omega(solver.sin, 100, -1, -1, 1)
+    # solver.solve_different_omega(solver.step, 100, -1, -1, 1)
+    # b = 0.5
+    # m = 1
+    # k = 1
+    # solver.define_matrices(b, m, k)
+    # solver.define_L(0.4)
 
-    res = itg.solve_ivp(solver.solve_system, [0, 100], [0, 0, 0, 0], rtol=1e-10, args=(*solver.matrices, solver.step, None))
-    t = res.t
-    x1 = res.y[2]
-    x2 = res.y[3]
-    x2_calc = (x1[1:] - x1[:-1])/(t[1:] - t[:-1])
-    plt.subplot(121)
-    plt.plot(t, x2)
-    plt.plot(t[1:], x2_calc)
-    plt.legend(['x2 symulowane', 'x2 obliczone'])
-    plt.title('Wymuszenie skokowe')
+    # res = itg.solve_ivp(solver.solve_system, [0, 100], [0, 0, 0, 0], rtol=1e-10, args=(*solver.matrices, solver.step, None))
+    # t = res.t
+    # x1 = res.y[2]
+    # x2 = res.y[3]
+    # x2_calc = (x1[1:] - x1[:-1])/(t[1:] - t[:-1])
+    # plt.subplot(121)
+    # plt.plot(t, x2)
+    # plt.plot(t[1:], x2_calc)
+    # plt.legend(['x2 symulowane', 'x2 obliczone'])
+    # plt.title('Wymuszenie skokowe')
 
-    res = itg.solve_ivp(solver.solve_system, [0, 100], [0, 0, 0, 0], rtol=1e-10, args=(*solver.matrices, solver.sin, None))
-    t = res.t
-    x1 = res.y[2]
-    x2 = res.y[3]
-    x2_calc = (x1[1:] - x1[:-1])/(t[1:] - t[:-1])
-    plt.subplot(122)
-    plt.plot(t, x2)
-    plt.plot(t[1:], x2_calc)
-    plt.legend(['x2 symulowane', 'x2 obliczone'])
-    plt.title('Wymuszenie sinusoidalne')
-    plt.show()
+    # res = itg.solve_ivp(solver.solve_system, [0, 100], [0, 0, 0, 0], rtol=1e-10, args=(*solver.matrices, solver.sin, None))
+    # t = res.t
+    # x1 = res.y[2]
+    # x2 = res.y[3]
+    # x2_calc = (x1[1:] - x1[:-1])/(t[1:] - t[:-1])
+    # plt.subplot(122)
+    # plt.plot(t, x2)
+    # plt.plot(t[1:], x2_calc)
+    # plt.legend(['x2 symulowane', 'x2 obliczone'])
+    # plt.title('Wymuszenie sinusoidalne')
+    # plt.show()
